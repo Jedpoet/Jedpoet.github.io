@@ -3,7 +3,7 @@
 <html lang="zh-tw">
 <head>
     <meta charset="utf-8" />
-    <title>Archives | 玉聿的基地</title>
+    <title> | 玉聿的基地</title>
     <meta name="author" content="JadePoet" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -45,7 +45,9 @@
 
 
 
-<script src="/js/lib/search.js"></script>
+
+
+
 
 
 
@@ -157,43 +159,102 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            
-<div id="archives">
-    
-    <input id="search-bar" class="input" placeholder="搜索" v-model="rawSearch" />
-    
-    <div id="timeline-wrap" ref="timeline">
+            <div class="article">
+    <div>
+        <h1></h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2025/3/7
+        </span>
         
-        <div class="timeline" data-title="網站架設成功~">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2025/3/5</div>
-                <a href="/2025/03/05/web-success/">
-                    <h3>網站架設成功~</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                    <span class="tags">
-                        <span class="icon">
-                            <i class="fa-solid fa-tags fa-fw"></i>
-                        </span>
-                        
-                        
-                        <span class="tag">
-                            
-                            <a href="/tags/%E7%94%9F%E6%B4%BB/" style="color: #03a9f4">
-                                生活
-                            </a>
-                        </span>
-                        
-                    </span>
-                    
-                </div>
-            </div>
-        </div>
         
     </div>
+    
+    <div class="content" v-pre>
+        <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>換算系統</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <center>
+        <h2>轉換表</h2>
+    </center>
+    <label for="unit">選擇單位：</label>
+    <select id="unit">
+        <option value="m2">m2</option>
+        <option value="cm2">cm2</option>
+        <option value="Ft2">Ft2</option>
+    </select>
+
+    <br>
+
+    <label for="amount">輸入：</label>
+    <input type="number" id="amount" min="0" value="1">
+
+
+
+    <button onclick="calculateResult()">計算結果</button>
+
+    <h3>換算結果：</h3>
+    <h3 id="result_m2">m2: 0</h3>
+    <h3 id="result_cm2">cm2: 0</h3>
+    <h3 id="result_Ft2">Ft2: 0</h3>
+
+    <script>
+        function calculateResult() {
+            var changeUnit = document.getElementById("unit").value;
+            var amount = document.getElementById("amount").value;
+            if (changeUnit == "cm2") {
+                var result_cm2 = amount;
+                var result_m2 = amount*0.0001;
+                var result_Ft2 = amount*0.0010764;
+            }
+            else if (changeUnit == "m2") {
+                var result_cm2 = 10000*amount;
+                var result_m2 = amount;
+                var result_Ft2 = amount*10.764;
+            }
+            else {
+                var result_cm2 = 929*amount;
+                var result_m2 = amount*0.0929;
+                var result_Ft2 = amount;
+            }
+
+            document.getElementById("result_cm2").innerHTML = "cm2: " + result_cm2;
+            document.getElementById("result_m2").innerHTML = "m2: " + result_m2;
+            document.getElementById("result_Ft2").innerHTML = "Ft2: " + result_Ft2;
+           
+        }
+    </script>
+
+</body>
+
+</html>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
 </div>
 
             <footer id="footer">
@@ -224,6 +285,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>
