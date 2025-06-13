@@ -23,6 +23,7 @@
         <option value="m2">m2</option>
         <option value="cm2">cm2</option>
         <option value="Ft2">Ft2</option>
+        <option value="DS">DS(DM)</option>
     </select>
 
     <br>
@@ -38,6 +39,7 @@
     <h3 id="result_m2">m2: 0</h3>
     <h3 id="result_cm2">cm2: 0</h3>
     <h3 id="result_Ft2">Ft2: 0</h3>
+    <h3 id="result_DS">DS(DM): 0</h3>
 
     <script>
         function calculateResult() {
@@ -47,21 +49,31 @@
                 var result_cm2 = amount;
                 var result_m2 = amount*0.0001;
                 var result_Ft2 = amount*0.0010764;
+                var result_DS = amount*0.01;
             }
             else if (changeUnit == "m2") {
-                var result_cm2 = 10000*amount;
+                var result_cm2 = amount*10000;
                 var result_m2 = amount;
                 var result_Ft2 = amount*10.764;
+                var result_DS = amount*100;
             }
-            else {
-                var result_cm2 = 929*amount;
+            else if (changeUnit == "Ft2") {
+                var result_cm2 = amount*929;
                 var result_m2 = amount*0.0929;
                 var result_Ft2 = amount;
+                var result_DS = amount*9.29;
+            }
+            else if (changeUnit == "DS") {
+                var result_cm2 = amount*100;
+                var result_m2 = amount*0.01;
+                var result_Ft2 = amount*0.107643;
+                var result_DS = amount;
             }
 
             document.getElementById("result_cm2").innerHTML = "cm2: " + result_cm2;
             document.getElementById("result_m2").innerHTML = "m2: " + result_m2;
             document.getElementById("result_Ft2").innerHTML = "Ft2: " + result_Ft2;
+            document.getElementById("result_DS").innerHTML = "DS(DM): " + result_DS;
 
         }
     </script>
