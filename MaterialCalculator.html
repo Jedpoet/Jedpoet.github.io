@@ -46,9 +46,9 @@
             var actul_usage = total_quantity - total_remain;
             var times = actul_usage / standard_quantity;
 
-            document.getElementById("estimated_usage").innerHTML = "預估用量：" + estimated_usage;
-            document.getElementById("actul_usage").innerHTML = "實際用量" + actul_usage;
-            document.getElementById("times").innerHTML = "倍數：" + times;
+            document.getElementById("estimated_usage").innerHTML = "預估用量：" + estimated_usage.toFixed(2);
+            document.getElementById("actul_usage").innerHTML = "實際用量" + actul_usage.toFixed(2);
+            document.getElementById("times").innerHTML = "倍數：" + times.toFixed(2);
 
         }
     </script>
