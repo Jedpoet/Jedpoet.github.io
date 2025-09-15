@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用料計算器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <center>
+        <h2>轉換表</h2>
+    </center>
+    
+    <label for="total_quantity">總領料量：</label>
+    <input type="number" id="total_quantity" min="0">
+
+    <br>
+
+    <label for="standard_quantity">標準用量：</label>
+    <input type="number" id="standard_quantity" min="0">
+
+    <h3 id = "estimated_usage">預估用量：0</h3>
+
+    <label for="total_remain">總餘料量：</label>
+    <input type="number" id="total_remain" min="0">
+
+    <h3 id = "actul_usage">實際用量：0</h3>
+    <h3 id = "times">倍數：0</h3>
+
+    <button onclick="calculateResult()">計算結果</button>
+
+    <script>
+        function calculateResult() {
+            var total_quantity = document.getElementById("total_quantity").value;
+            var standard_quantity = document.getElementById("standard_quantity").value;
+            var total_remain = document.getElementById("total_remain").value;
+            var estimated_usage = standard_quantity*1.44;
+            var actul_usage = total_quantity - total_remain;
+            var times = actul_usage / standard_quantity;
+
+            document.getElementById("estimated_usage").innerHTML = "預估用量：" + estimated_usage;
+            document.getElementById("actul_usage").innerHTML = "實際用量" + actul_usage;
+            document.getElementById("times").innerHTML = "倍數：" + times;
+
+        }
+    </script>
+
+</body>
+
+</html>
